@@ -23,7 +23,11 @@ Route::get('/', function () {
 
 Route::get('/tasks', function () {
     
-    $tasks = DB::table('tasks')->latest()->get();
+    // $tasks = DB::table('tasks')->latest()->get();
+    
+    //Use Eloquent in a dedicated class
+    $tasks = App\Task::all();
+    
     
     return view('tasks.index', compact('tasks'));
     
