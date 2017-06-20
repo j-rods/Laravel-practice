@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Task extends Model
 {
-    public static function incomplete()
+    public static function scopeIncomplete($query) // Task::incomplte
 
     {
-      return static::where('completed', 0)->get();
+      return $query->where('completed', 0); //wrapper around a particular query
     }
 
 }
